@@ -1,3 +1,5 @@
+import 'package:flutter_hacker_news_api/src/resources/cache.dart';
+import 'package:flutter_hacker_news_api/src/resources/source.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -5,7 +7,7 @@ import 'dart:io';
 import 'dart:async';
 import '../models/item_model.dart';
 
-class NewsDbProvider {
+class NewsDbProvider implements Source, Cache{
   Database db;
 
   init() async{
@@ -55,5 +57,10 @@ class NewsDbProvider {
 
   Future<int> addItem(ItemModel item) {
     return db.insert('Items', item.toMapForDB() , conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  @override
+  Future<List<int>> fetchTopId() {
+    return null;
   }
 }
