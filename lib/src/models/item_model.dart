@@ -29,7 +29,7 @@ class ItemModel {
       url = parsedJson['url'],
       score = parsedJson['score'],
       title = parsedJson['title'],
-      descendants = parsedJson['descendants'];
+      descendants = parsedJson['descendants'] ?? 0;
 
   // == from INTEGER to bool  if  1==1 it's true else it's false
   ItemModel.fromDB(Map<String, dynamic> parsedJson)
