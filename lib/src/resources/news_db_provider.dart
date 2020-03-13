@@ -10,6 +10,10 @@ import '../models/item_model.dart';
 class NewsDbProvider implements Source, Cache{
   Database db;
 
+  NewsDbProvider(){
+    init();
+  }
+
   init() async{
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     final path = join(documentsDirectory.path, 'items.db');
@@ -64,3 +68,5 @@ class NewsDbProvider implements Source, Cache{
     return null;
   }
 }
+
+final newsDbProvider = NewsDbProvider();

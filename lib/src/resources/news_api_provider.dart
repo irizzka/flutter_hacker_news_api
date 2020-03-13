@@ -23,3 +23,5 @@ class NewsApiProvider implements Source{
     return ItemModel.fromJson(item);
   }
 }
+
+final NewsApiProvider newsApiProvider = NewsApiProvider();

@@ -10,17 +10,17 @@ class Repository {
  // NewsDbProvider dbProvider = NewsDbProvider();
  // NewsApiProvider newsApiProvider = NewsApiProvider();
   List<Source> sources = <Source> [
-    NewsDbProvider(),
-    NewsApiProvider()
+    newsDbProvider,
+    newsApiProvider
   ];
 
   List<Cache> caches = <Cache>[
-    NewsDbProvider(),
+    newsDbProvider,
   ];
 
+
   Future<List<int>> fetchTopIds() {
-
-
+     return sources[1].fetchTopId();
   }
 
   Future<ItemModel> fetchItem(int id) async{
