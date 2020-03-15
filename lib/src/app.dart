@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hacker_news_api/src/blocs/comments_provider.dart';
 import 'package:flutter_hacker_news_api/src/blocs/stories_provider.dart';
-import 'package:flutter_hacker_news_api/src/screens/news_details.dart';
+import 'package:flutter_hacker_news_api/src/screens/news_details_screen.dart';
 import 'package:flutter_hacker_news_api/src/screens/news_list_screen.dart';
 
 class App extends StatelessWidget {
@@ -21,6 +21,8 @@ class App extends StatelessWidget {
   Route routes(RouteSettings settings) {
     if (settings.name == '/') {
       return MaterialPageRoute(builder: (context) {
+        final bloc = StoriesProvider.of(context);
+        bloc.fetchTopIds();
         return NewsList();
       });
     } else {
